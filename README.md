@@ -8,7 +8,7 @@ This is a simple react app that shows how to display an array of items from a JS
 
 You can run the project with:
 
-### `npm start`
+### ```npm install; npm start```
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
