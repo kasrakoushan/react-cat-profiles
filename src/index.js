@@ -1,12 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import cats from './data.json';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function App() {
+  console.log(cats);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  let catElements = cats.map(elem => {
+    return (<CatProfile key={elem.id} name={elem.name} description={elem.description} />)
+  });
+  return (
+    <div>
+      <h1> Welcome to my App. </h1>
+      {catElements}
+    </div>
+  )
+}
+
+function CatProfile(props) {
+  let myStyle = {
+    padding: 20,
+    margin: 20,
+    borderStyle: 'solid',
+    backgroundColor: 'pink'
+  }
+  return (
+    <div style={myStyle}>
+      <h1>{props.name}</h1>
+      <p> {props.description} </p>
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, 
+  document.getElementById('root'));
+
+
